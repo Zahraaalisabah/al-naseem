@@ -1,13 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ==========================================================================
-     1. قائمة الهواتف والشاشات الصغيرة (Responsive Mobile Menu)
-     ========================================================================== */
+  /* --- 1. قائمة الهواتف والشاشات الصغيرة --- */
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
 
   if (menuToggle && navMenu) {
-    // فتح وإغلاق القائمة عند الضغط على زر الهامبرغر
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       const icon = menuToggle.querySelector('i');
@@ -22,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // إغلاق القائمة تلقائياً عند الضغط على أي رابط داخلها
     document.querySelectorAll('.menu a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -35,32 +31,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-  /* ==========================================================================
-     2. حركة إظهار كروت نمط الحياة (life-card) عند التمرير
-     ========================================================================== */
+  /* --- 2. حركة إظهار البطاقات عند التمرير --- */
   function checkCards() {
     const cards = document.querySelectorAll(".life-card");
     cards.forEach(card => {
       const top = card.getBoundingClientRect().top;
-      // التحقق مما إذا كان الكارت قد ظهر في الشاشة
-      if (top < window.innerHeight - 80) {
+      if (top < window.innerHeight - 50) {
         card.style.opacity = "1";
         card.style.transform = "translateY(0)";
       }
     });
   }
 
-  // تشغيل عند التمرير وفور تحميل الصفحة
   window.addEventListener("scroll", checkCards);
   checkCards();
 
-
-  /* ==========================================================================
-     3. العدادات التنازلية لسيوم الثقة (Intersection Observer Counters)
-     ========================================================================== */
+  /* --- 3. العدادات التنازلية --- */
   const counters = document.querySelectorAll('.counter');
-
   if (counters.length > 0) {
     const startCounter = (counter) => {
       const target = +counter.getAttribute('data-target');
@@ -76,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
           counter.innerText = target;
         }
       };
-
       update();
     };
 
