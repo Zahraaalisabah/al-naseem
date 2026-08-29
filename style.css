@@ -1186,3 +1186,8 @@ color:#dbe7ff;
     left: 15px;
   }
 }
+.life-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
