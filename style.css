@@ -1191,3 +1191,52 @@ color:#dbe7ff;
   transform: translateY(40px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+/* ==========================================
+   تنسيقات قائمة الهواتف والشاشات الصغيرة
+   ========================================== */
+
+/* إظهار زر القائمة (الهامبرغر) للشاشات الصغيرة */
+@media (max-width: 992px) {
+  .mobile-toggle {
+    display: block !important;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #0b59df;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  /* إخفاء زر اطلب الآن العلوي لمنع الازداحام */
+  .nav-order-btn {
+    display: none;
+  }
+
+  /* إخفاء القائمة خارج الشاشة افتراضياً */
+  .menu {
+    display: flex !important;
+    position: fixed;
+    top: 80px;
+    right: -100%; /* تكون خارج الشاشة من جهة اليمين */
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.4s ease-in-out; /* حركة انزلاق ناعمة */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  /* هذا الكلاس يضيفه الجافاسكريبت عند الضغط على الزر لتظهر القائمة */
+  .menu.active {
+    right: 0 !important; /* إدخال القائمة للشاشة */
+  }
+
+  .menu a {
+    font-size: 22px;
+  }
+}
